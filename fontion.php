@@ -10,10 +10,10 @@ function valider_mot_de_passe($mot_de_passe) {
     $salt = "ABC1234@";
 
     // Concaténer le « salt » au mot de passe
-    $mot_de_passe_concatene = $mot_de_passe . $salt;
+    $mot_de_passe_salt = $mot_de_passe . $salt;
 
     // Chiffrer le mot de passe avec SHA-256
-    $mot_de_passe_chiffre = hash('sha256', $mot_de_passe_concatene);
+    $mot_de_passe_chiffre = hash('sha256', $mot_de_passe_salt);
 
     // Afficher le message avec le « salt » et le mot de passe chiffré
     echo "Mot de passe chiffré : $mot_de_passe_chiffre<br>";
@@ -30,8 +30,5 @@ function valider_mot_de_passe($mot_de_passe) {
 }
 
 // Exemple d'utilisation
-$mot_de_passe = "abcdef";
-$resultat = valider_mot_de_passe($mot_de_passe);
-echo $resultat;
 
 ?>
